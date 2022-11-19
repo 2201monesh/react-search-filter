@@ -6,10 +6,12 @@ import Table from './Table';
 function App() {
 
   const [query, setQuery] = useState("");
-  // console.log(query);
+
+  const keys = ["first_name", "last_name", "email"];
 
   const search = (data) => {
-    return data.filter(item => item.first_name.toLowerCase().includes(query) || item.last_name.toLowerCase().includes(query) || item.email.toLowerCase().includes(query));
+    return data.filter((item) => 
+    keys.some((key) => item[key].toLowerCase().includes(query)));
   }
 
   return (
